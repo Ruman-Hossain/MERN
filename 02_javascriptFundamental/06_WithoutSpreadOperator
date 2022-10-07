@@ -1,0 +1,6 @@
+let poorCountry = ["Bangladesh","Srilangka"];
+let richCountry = ["America","Canada","Italy"];
+
+richCountry.push(poorCountry);
+
+console.log(richCountry);
