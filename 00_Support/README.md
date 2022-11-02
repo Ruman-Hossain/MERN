@@ -1,6 +1,6 @@
 ## NODE JS Live Terminal/OUTPUT Generate Configuration
-## First Open Terminal in your Working Terminal
-##  1. Create ***package.json*** file
+## First Open Terminal in your Working Directory
+##  1. Create ***package.json*** file 
 ```powershell
     npm init --y 
 ```
