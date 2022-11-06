@@ -1,0 +1,24 @@
+{
+  "name": "mern",
+  "version": "1.0.0",
+  "description": "MERN (MongoDB, Express.JS, React.JS, Node.JS)",
+  "scripts": {
+    "start-watch": "npm run nodemon  ${__filename}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ruman-Hossain/MERN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ruman-Hossain/MERN/issues"
+  },
+  "homepage": "https://github.com/Ruman-Hossain/MERN#readme",
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "main": "${__filename}.substring(${__filename}.lastIndexOf('/')+1)",
+  "devDependencies": {}
+}
