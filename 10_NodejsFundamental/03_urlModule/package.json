@@ -1,0 +1,12 @@
+{
+  "name": "03_urlmodule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "URLModule.js",
+  "scripts": {
+    "start": "node URLModule.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
