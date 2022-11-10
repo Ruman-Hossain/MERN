@@ -2,7 +2,7 @@ var fs = require('fs');
 var http = require('http');
 
 var server = http.createServer(function(req,res){
-    //File Delete or Unlink Synchronous
+    //File Delete or Unlink Asynchronous
     if(req.url == '/'){
         fs.unlink('demo.txt',function(error){
             if(error){
