@@ -21,3 +21,48 @@ console.log("More Than Hundred    : ", moreThanHundred);
 console.log("Greater Than Hundred : ", greaterThanHundred);
 // More Than Hundred    :  undefined
 // Greater Than Hundred :  undefined
+
+
+
+const info = [
+{
+    name: 'tina',
+    tution: 'hophap',
+    area: 'xyz, canada'
+},
+{
+    name:'pina',
+    tution:'iku iku',
+    area:'xyz, canada'
+},
+{
+    name:'mina',
+    tution:'toptap',
+    area:'xyz, canada'
+},
+{
+    name:'rina',
+    tution:'uik uik',
+    area:'xyz, canada'
+}
+]
+
+const gfInfo = info.find((info) => info.name === 'mina' && info.tution === 'toptap' && info.area === 'xyz, canada');
+console.log("GF Info : ", gfInfo);
+//GF Info :  { name: 'mina', tution: 'toptap', area: 'xyz, canada' }
+
+
+//=======================FIND FUNCTION Implementations ===================
+Array.prototype.myFind = function(callback) {
+    for (let i = 0; i < this.length; i++) {
+        if(callback(this[i], i , this)){
+            return this[i] ;
+        }
+    }
+}
+
+
+const result = ['rina','mina','tina','pina'].myFind(item => item === 'mina');
+console.log("Result : ", result);
+// Result :  mina
+
