@@ -16,3 +16,7 @@ for(let x = 5,y = 20 ; x <= 20 ; x += 5, y -= 5){
     console.log(doSum ? result : "Skipped");
     doSum ? doSum = false : doSum = true;
 }
+
+//Template Literals With Ternary Operator
+var flag = true;
+console.log(`You are ${flag==true?'Positive Minded':'a Negative Minded Person'}`);
