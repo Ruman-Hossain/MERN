@@ -79,7 +79,6 @@ console.log(sakib.country);  //Bangladesh
 console.log(`The cricketer name is ${sakib.name}, his age is ${sakib.age}, country is ${sakib['country']}`)
 //The cricketer name is Sakib al hassan, his age is 35, country is Bangladesh
 console.log(Object.keys(sakib));
-console.log(sakib.keys());
 console.log(Object.values(sakib));
 
 for(let element in sakib){
