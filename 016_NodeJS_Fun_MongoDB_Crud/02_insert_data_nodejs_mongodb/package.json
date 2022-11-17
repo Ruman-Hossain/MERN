@@ -1,0 +1,13 @@
+{
+  "name": "02_insert_data_nodejs_mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "insertOne.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node insertOne.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
