@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .welcomeText {
+  background: #27ae60;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 100px
+}
+
+#typingText {
+  width: 800px;
+  margin: 0 auto;
+  padding: 15px;
+  text-align: center;
+  text-shadow: 2px 5px #000;
+}
+    </style>
+</head>
+<body>
+<a href="/">Home</a> <br>
+<a href="/Contact">Contact</a> <br>
+<a href="/About">About</a> <br>
+<a href="/Terms">Terms</a> <br>
+
+
+<hr>
+
+<div class="welcomeText" id="typingText">
+
+</div>
+<script>
+    var myString = "Welcome to NODE JS Simple Request Response Model.";
+var myArray = myString.split("");
+var loopTimer;
+
+function looper() {
+  if(myArray.length > 0){
+    document.getElementById("typingText").innerHTML += myArray.shift();
+  } else {
+    clearTimeout(loopTimer);
+  }
+  loopTimer = setTimeout('looper()', 100);
+}
+looper();
+
+</script>
+</body>
+</html>
