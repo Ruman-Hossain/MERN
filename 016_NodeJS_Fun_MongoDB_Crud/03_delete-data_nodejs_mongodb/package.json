@@ -1,0 +1,16 @@
+{
+  "name": "03_delete-data_nodejs_mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "deleteOne.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node deleteOne.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^4.12.0"
+  }
+}
