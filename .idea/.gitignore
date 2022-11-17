@@ -3,4 +3,4 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-/node_modules
+/016_NodeJS_Fun_MongoDB_Crud/04_delete_all_data/node_modules
