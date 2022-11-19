@@ -1,0 +1,16 @@
+{
+  "name": "05_insert_delete_oneormany_find_oneormany_update_createcollection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^4.12.0"
+  }
+}
