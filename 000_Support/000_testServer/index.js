@@ -5,7 +5,7 @@ const insertOneDoc = async()=>{
         const Database = client.db('school');
         const students = Database.collection('students');
         const doc ={
-            FirstName:'Afrin Akter',
+            FirstName:'Mst Afrin Akter',
             LastName:'Annee',
             Group:'Science',
             Designation:'Dentist',
