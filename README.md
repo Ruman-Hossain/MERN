@@ -68,7 +68,7 @@
 - Create New Collection
 - Delete a collection
 ## [Node JS Debugging || API Response Debugging](https://github.com/Ruman-Hossain/MERN/tree/master/019_NodeJS_fun_NodeJS_Debugging/01_nodeJS_debugging)
-## [Assignements]()
+## [Assignements | Ostad | MERN Stack Sure JOB Placement Program]()
 - [Assignment-01: Making List Using Map and Array](https://github.com/Ruman-Hossain/MERN/tree/master/Assignments/01_MakingListUsingMapAndArray)
 - [Assignment-02: My First Node Js Website Using Request Response Model](https://github.com/Ruman-Hossain/MERN/tree/master/Assignments/02_my_first_nodejs_request_response)
 - [Assignment-03 : ]()
