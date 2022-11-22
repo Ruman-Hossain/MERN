@@ -5,9 +5,11 @@ const {insertOneDoc,
        readOneDoc,      //used in Function ReadOneDocument
        readMultiDoc,    //Used in Function ReadMultipleDocument
        readLimitedDoc,  //Used in Function ReadLimitedDocument
-       updateOneDoc,    //Used in UpdateOneDocument
-       updateMultiDoc,  //Used in UpdateMultipleDocument
-       updateAllDoc,    //Used in UpdateAllDocument
+       updateFilter,    //Query to Select to do Updte Operation
+       updateOptions,   //If Filed not found then it will create that field
+       updateOneDoc,    //Used in UpdateOneDocument New Values to Set 
+       updateMultiDoc,  //Used in UpdateMultipleDocument New Values to Set
+       updateAllDoc,    //Used in UpdateAllDocument New Values to set 
        deleteOneDoc,    //Used in DeleteOneDocument
        deleteMultiDoc,   //Used in DeleteMultipleDocument
        deleteAllDoc,
@@ -22,10 +24,9 @@ const crud = async()=>{
                      2. Insert       
                      3. Update      
                      4. Delete    
-                     5. Exit
                      `);
         //while(true){
-            readline.question("Input (1/2/3/4/5)? :",userInput=>{
+            readline.question("Input (1/2/3/4)? :",userInput=>{
                 switch (userInput) {
                     //READ OPERATIONS COMPLETED
                     case "1":
@@ -34,9 +35,8 @@ const crud = async()=>{
                                      1. Read One Data   
                                      2. Read Limited Data 
                                      3. Read All Data
-                                     4. Back to Main Menu
                                      `);
-                        readline.question("Input (1/2/3/4)? :",readInput=>{
+                        readline.question("Input (1/2/3)? :",readInput=>{
                             switch (readInput) {
                                 case "1":
                                     ReadOneDocument();
@@ -46,8 +46,6 @@ const crud = async()=>{
                                     break;
                                 case "3":
                                     ReadAllDocument();
-                                    break;
-                                case "4":
                                     break;
                                 default:
                                     console.log("Wrong Reading Type. Try Again!");
@@ -62,17 +60,14 @@ const crud = async()=>{
                         console.log(`
                                      1. Insert One Document  
                                      2. Insert Multi Document 
-                                     3. Back to Main Menu
                                      `);
-                        readline.question("Input (1/2/3)? :",insertInput=>{
+                        readline.question("Input (1/2)? :",insertInput=>{
                             switch (insertInput) {
                                 case "1":
                                     InsertOneDocument();
                                     break;
                                 case "2":
                                     InsertMultiDocument();
-                                    break;
-                                case "3":
                                     break;
                                 default:
                                     console.log("Wrong Insertion Type. Try Again!");
@@ -81,16 +76,15 @@ const crud = async()=>{
                         });
                         break;
                     
-                    //UPDATE OPERATIONS
+                    //UPDATE OPERATIONS COMPLETED
                     case "3":
                         console.log("Select Your Target Update Operation : ");
                         console.log(`
                                      1. Update One Document   
                                      2. Update Multiple Document
                                      3. Update All Document 
-                                     4. Back to Main Menu
                                      `);
-                        readline.question("Input (1/2/3/4)? :",updatetInput=>{
+                        readline.question("Input (1/2/3)? :",updatetInput=>{
                             switch (updatetInput) {
                                 case "1":
                                     UpdateOneDocument();
@@ -100,8 +94,6 @@ const crud = async()=>{
                                     break;
                                 case "3":
                                     UpdateAllDocument();
-                                    break;
-                                case "4":
                                     break;
                                 default:
                                     console.log("Wrong Update Type. Try Again!");
@@ -117,9 +109,8 @@ const crud = async()=>{
                                      1. Delete One Document   
                                      2. Delete Multiple Document 
                                      3. Delete All Document
-                                     4. Back to Main Menu
                                      `);
-                        readline.question("Input (1/2/3/4)? :",insertInput=>{
+                        readline.question("Input (1/2/3)? :",insertInput=>{
                             switch (insertInput) {
                                 case "1":
                                     DeleteOneDocument();
@@ -130,21 +121,13 @@ const crud = async()=>{
                                 case "3":
                                     DeleteAllDocument();
                                     break;
-                                case "4":
-                                    break;
                                 default:
                                     console.log("Wrong Deletion Type. Try Again!");
                                     break;
                             }
                         });
                         break;
-                    
-                    //EXIT CRUD OPERATIONS
-                    case "5":
-                        console.log("Leaving Server...")
-                        break;
-                    client.close();
-                    //DEFAULT OPERATIONS
+                    //DEFAULT OPERATIONS COMPLETED
                     default:
                         console.log("Wrong Input. Try Again!");
                         break;
@@ -310,8 +293,41 @@ const DeleteAllDocument = async() => {
     }
 };
 
-const UpdateOneDocument = async() => {};
-const UpdateMultipleDocument = async() => {};
-const UpdateAllDocument = async() => {};
+const UpdateOneDocument = async() => {
+    try {
+        var database = client.db(process.env.DATABASE_NAME);
+        var users = database.collection(process.env.COLLECTION_NAME);
+        const result = await users.updateOne(updateFilter,updateOneDoc,updateOptions);
+        console.log(`Updated ${result.modifiedCount} documents`);
+    } catch (error) {
+        console.log(`Error Occured: Having Input Data Format Problem or ${error}`);
+    }finally{
+       await client.close();
+    }
+};
+const UpdateMultipleDocument = async() => {
+    try {
+        var database = client.db(process.env.DATABASE_NAME);
+        var users = database.collection(process.env.COLLECTION_NAME);
+        const result = await users.updateMany(updateFilter,updateMultiDoc,updateOptions);
+        console.log(`Updated ${result.modifiedCount} documents`);
+    } catch (error) {
+        console.log(`Error Occured: Having Input Data Format Problem or ${error}`);
+    }finally{
+       await client.close();
+    }
+};
+const UpdateAllDocument = async() => {
+    try {
+        var database = client.db(process.env.DATABASE_NAME);
+        var users = database.collection(process.env.COLLECTION_NAME);
+        const result = await users.updateMany(updateFilter,updateAllDoc,updateOptions);
+        console.log(`Updated ${result.modifiedCount} documents`);
+    } catch (error) {
+        console.log(`Error Occured: Having Input Data Format Problem or ${error}`);
+    }finally{
+       await client.close();
+    }
+};
 
 crud();

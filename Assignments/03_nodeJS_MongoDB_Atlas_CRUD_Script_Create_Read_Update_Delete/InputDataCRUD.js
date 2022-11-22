@@ -8,7 +8,7 @@ let readLimitedDoc = {City:'Rangpur'};
 //Increasing: sort:{ColumnName: 1}; Decreasing : sort{columnName: -1}
 //Column Selection : projection: {columnName:1}; Deselect: projection:{ColumnName:0};
 let readOptions ={  
-    runtime:{$lt:15},
+    runtime:{$lt:105},
     sort:{},    
     projection:{}
 };
@@ -35,12 +35,33 @@ let insertMultiDoc = [{"FirstName": "Md Ruman","LastName": "Hossain","Group": "S
                       {"FirstName": "Ariful","LastName": "Hasan","Group": "Science","Designation": "Writter","City": "Rangpur"},
                       {"FirstName": "Al Kafi","LastName": "Nayan","Group": "Science","Designation": "Writter","City": "Rangpur"}];
 
-let updateOneDoc = {Group:'abcd'};
-let updateMultiDoc = {Designation:{$regex:'Dentist'}};
-let updateAllDoc = {};
+//REQUIRED FOR UPDATE OPERATIONS
+let updateFilter = {};
+let updateOptions = {upsert:true};//upsert:true || if value/field not found it will create update data 
+let updateOneDoc = {
+    $set:{
+        City:'Dhaka Dhaka Dhaka'
+    },
+};
+let updateMultiDoc = {
+    $set:{
+        FirstName:'Afrin Akter',
+        LastName:'Annee'
+    },
+};
+let updateAllDoc = {
+    $set:{
+        FirstName:'Afrin Akter',
+        LastName:'Annee',
+        Group:'Humanities',
+        Designation:'Instructor',
+        City:'Rangpur',
+        Country:'Bangladesh'
+    },
+};
 
 let deleteOneDoc = {Designation:{$regex:'Software'}};
-let deleteMultiDoc = {Designation:{$regex:'Digital'}};  //Pattern Matching : {ColumnName:{$regex:subString or Pattern}} 
+let deleteMultiDoc = {Designation:{$regex:'Engineer'}};  //Pattern Matching : {ColumnName:{$regex:subString or Pattern}} 
 let deleteAllDoc = {};
 
 module.exports = {
@@ -52,6 +73,8 @@ module.exports = {
     insertOneDoc,
     insertMultiDoc,
 
+    updateFilter,
+    updateOptions,
     updateOneDoc,
     updateMultiDoc,
     updateAllDoc,
