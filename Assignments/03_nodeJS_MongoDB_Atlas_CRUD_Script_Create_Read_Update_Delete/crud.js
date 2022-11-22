@@ -11,7 +11,7 @@ const {insertOneDoc,
        deleteOneDoc,    //Used in DeleteOneDocument
        deleteMultiDoc,   //Used in DeleteMultipleDocument
        deleteAllDoc,
-       readOptions
+       readOptions,
     } = require('./InputDataCRUD');
 
 
@@ -157,10 +157,6 @@ const ReadOneDocument = async() =>{
         var database = client.db(process.env.DATABASE_NAME);
         var users = database.collection(process.env.COLLECTION_NAME);
 
-        // const options = {
-        //      sort:{FirstName:1,LastName:1,Group:1,Designation:1,City:1},
-        //      projection:{FirstName:1,LastName:1,Group:1,Designation:1,City:1}};
-        //INSTEAD OF DEFINING OPTIONS here INDIVIDUALLY WE ARE CALLING readOptions from InputDataCRUD.js File
         const result = await users.findOne(readOneDoc,readOptions);
         if(result==null)
             console.log("Database Empty or No Data Matched Your Query");
@@ -185,15 +181,16 @@ const ReadLimitedDocument = async() =>  {
         //      projection:{FirstName:1,LastName:1,Group:1,Designation:1,City:1}
         //     };
         //INSTEAD OF DEFINING OPTIONS here INDIVIDUALLY WE ARE CALLING readOptions from InputDataCRUD.js File
-        const result = users.find(readLimitedDoc,readOptions);
+        const result = users.find(readLimitedDoc,readOptions).limit(readOptions.runtime.$lt);
         if ((await result.count()) === 0) {
             console.log("No documents found That Matched Your Query !");
           }else{
-            console.log(`Limited Documents Reading Successful`);
             //await result.forEach(console.dir); 
+            let counter = 1;
             await result.forEach((item)=>{
-                console.log(`_id : ${item._id} Name : ${item.FirstName} ${item.LastName} Group :${item.Group} Designation : ${item.Designation} City: ${item.City}`);
+                console.log(`${counter++}. _id : ${item._id} Name : ${item.FirstName} ${item.LastName} Group :${item.Group} Designation : ${item.Designation} City: ${item.City}`);
             }); 
+            console.log(`Limited ${--counter} Documents Reading Successful`);
         }     
         
     } catch (error) {
@@ -213,7 +210,7 @@ const ReadAllDocument = async() => {
         //      projection:{}
         //     };
         //INSTEAD OF DEFINING OPTIONS here INDIVIDUALLY WE ARE CALLING readOptions from InputDataCRUD.js File
-        const result = users.find(readMultiDoc,readOptions);
+        const result = users.find(readMultiDoc,readOptions).limit(readOptions.runtime.$lt);
         if ((await result.count()) === 0) {
             console.log("No documents found! That Matched Your Query!!");
         }else{

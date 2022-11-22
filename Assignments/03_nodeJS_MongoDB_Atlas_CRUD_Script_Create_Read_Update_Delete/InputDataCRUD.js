@@ -1,10 +1,16 @@
-let readOneDoc = {Group:'Science'};
+//Among These Value : {ColumnName:{$in:['Value1','Vaue2],.......}};
+//Regex Pattern Matching : {ColumnName:{$regex:'patternName'}};
+let readOneDoc = {};
 let readMultiDoc = {};
-let readLimitedDoc = {};
-let readOptions ={  //USED FOR ALL TYPES OF DOCUMENT READING JUST CHANGE JUST ADD OR DELETE PARAMETERS HERE
-    runtime: { $lt: 5 }, //Limit: runtime:{$lt:15};
-    sort:{},    //Increasing: sort:{ColumnName: 1}; Decreasing : sort{columnName: -1}
-    projection:{} //Column Selection : projection: {columnName:1}
+let readLimitedDoc = {City:'Rangpur'};
+//ALL TYPES READ OPTIONS OF DOCUMENT READING JUST ADD OR DELETE PARAMETERS HERE
+//Limit: runtime:{$lt:15};
+//Increasing: sort:{ColumnName: 1}; Decreasing : sort{columnName: -1}
+//Column Selection : projection: {columnName:1}; Deselect: projection:{ColumnName:0};
+let readOptions ={  
+    runtime:{$lt:15},
+    sort:{},    
+    projection:{}
 };
 let insertOneDoc = {"FirstName": "Hossain","LastName": "Mohammad","Group": "Political Science","City": "Rangpur"};
 
