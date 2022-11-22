@@ -1,0 +1,13 @@
+{
+  "name": "03_nodejs_mongodb_atlas_crud_script_create_read_update_delete",
+  "version": "1.0.0",
+  "description": "",
+  "main": "crud.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev":"nodemon crud.js"
+  },
+  "keywords": [],
+  "author": "MD RUMAN HOSSAIN",
+  "license": "ISC"
+}
