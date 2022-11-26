@@ -74,4 +74,4 @@ app.get('/clear-cookies',(req,res)=>{
     console.log(`Username and Email is cleared from cookies`);
 });
 ```
-**NB : ( Set cookies | Clear Cookies )** You can be able to see output using [Postman]() or Inspect Element then See Cookies of your Browser
+**NB : ( Set cookies | Clear Cookies )** You can be able to see output using [Postman](https://www.postman.com/) or Inspect Element then See Cookies of your Browser
