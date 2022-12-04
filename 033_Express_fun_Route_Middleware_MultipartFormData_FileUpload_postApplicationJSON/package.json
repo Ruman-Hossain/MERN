@@ -1,0 +1,16 @@
+{
+  "name": "033_express_fun_route_middleware_multipartformdata_fileupload_postapplicationjson",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01_post_applicaiton_json.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2"
+  }
+}
