@@ -1,0 +1,45 @@
+const express = require('express');
+const app = express();
+
+const multer = require('multer');
+
+// const storage = multer.diskStorage({
+//     dest:(req,file,callback)=>{
+//         callback(null,'./uploads');
+//     },
+//     filename:(req,file,callback)=>{
+//         callback(null,file.originalname);
+//     }
+// });
+const imageStorage = multer.diskStorage({
+    // Destination to store image     
+    destination: 'uploads', 
+      filename: (req, file, cb) => {
+          cb(null, file.originalname)
+            // file.fieldname is name of the field (image)
+            // path.extname get the uploaded file extension
+    }
+});
+const imageUpload = multer({
+    storage: imageStorage,
+    limits: {
+      fileSize: 1000000 // 1000000 Bytes = 1 MB
+    },
+    fileFilter(req, file, cb) {
+      if (!file.originalname.match(/\.(png|jpg)$/)) { 
+         // upload only png and jpg format
+         return cb(new Error('Please upload an Image'))
+       }
+     cb(undefined, true)
+  }
+})
+
+app.post('/onefile', imageUpload.single('imageKey'), (req, res) => {
+    res.send(req.file)
+    }, (error, req, res, next) => {
+        res.status(400).send({ error: error.message })
+});
+
+app.listen(5050,()=>{
+    console.log("Express Server Connected!");
+});
