@@ -3,14 +3,6 @@ const app = express();
 
 const multer = require('multer');
 
-// const storage = multer.diskStorage({
-//     dest:(req,file,callback)=>{
-//         callback(null,'./uploads');
-//     },
-//     filename:(req,file,callback)=>{
-//         callback(null,file.originalname);
-//     }
-// });
 const imageStorage = multer.diskStorage({
     // Destination to store image     
     destination: 'uploads', 
@@ -23,7 +15,7 @@ const imageStorage = multer.diskStorage({
 const imageUpload = multer({
     storage: imageStorage,
     limits: {
-      fileSize: 1000000 // 1000000 Bytes = 1 MB
+      fileSize: 10000000 // 1000000 Bytes = 1 MB
     },
     fileFilter(req, file, cb) {
       if (!file.originalname.match(/\.(png|jpg)$/)) { 
@@ -32,13 +24,47 @@ const imageUpload = multer({
        }
      cb(undefined, true)
   }
-})
-
-app.post('/onefile', imageUpload.single('imageKey'), (req, res) => {
-    res.send(req.file)
-    }, (error, req, res, next) => {
-        res.status(400).send({ error: error.message })
 });
+
+// // SINGLE IMAGE UPLOAD || SEE OUTPUT IN POSTMAN JSON FORMAT
+// app.post('/onefile', imageUpload.single('imageKey'), (req, res) => {
+//     res.send(req.file)
+//     }, (error, req, res, next) => {
+//         res.status(400).send({ error: error.message })
+// });
+
+// SINGLE IMAGE UPLOAD ALTERNATIVE || You have to Check Console 
+const singleImage = imageUpload.single('imageKey');
+app.post('/onefile', (req, res)=> {
+    singleImage(req, res, (err)=> {
+      if (err instanceof multer.MulterError) {
+        console.log(`A Multer error occurred when uploading.\n ${err}`);
+      } else if (err) {
+        res.send(err);
+      }else
+        console.log(`Image Uploaded Successfully`);
+    });
+  });
+
+// // MULTIPLE IMAGE UPLOAD || SEE OUTPUT IN POSTMAN JSON FORMAT
+// app.post('/multifile', imageUpload.array('imageKey',5), (req, res) => {
+//     res.send(req.files)
+//     }, (error, req, res, next) => {
+//         res.status(400).send({ error: error.message })
+// });
+
+// //MULTIPLE IMAGE UPLOAD ALTERNATIVE
+  const multipleImage = imageUpload.array('imageKey',5);
+  app.post('/multifile', (req, res)=> {
+    multipleImage(req, res, (err)=> {
+      if (err instanceof multer.MulterError) {
+        console.log(`A Multer error occurred when uploading.\n ${err}`);
+      } else if (err) {
+        res.send(err);
+      }else
+        console.log(`Images Uploaded Successfully`);
+    });
+  });
 
 app.listen(5050,()=>{
     console.log("Express Server Connected!");
