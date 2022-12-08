@@ -39,17 +39,17 @@ app.listen(5050,()=>{
 });
 
 /*
-Route: http://localhost:5050
-Output:
+👉Route: http://localhost:5050
+✅Output:
 I'm Application Level Middleware!
 
-Route: http://localhost:5050/about
-Output:
+👉Route: http://localhost:5050/about
+✅Output:
 I'm Application Level Middleware!
 About Middleware Executed
 
-Route: http://localhost:5050/contact
-Output:
+👉Route: http://localhost:5050/contact
+✅Output:
 I'm Application Level Middleware!
 Contact Middleware Executed
 */
