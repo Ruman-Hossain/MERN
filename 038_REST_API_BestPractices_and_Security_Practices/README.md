@@ -1,5 +1,22 @@
-# STATUS CODE
-
+# STATUS CODE (Most USED)
+|     Code    	|     Meaning                            	|     Description                                                                                                                                   	|
+|-------------	|----------------------------------------	|---------------------------------------------------------------------------------------------------------------------------------------------------	|
+|     200     	|     OK                                 	|     The   request is OK (this is the standard response for successful HTTP requests)                                                              	|
+|     201     	|     Created                            	|     The   request has been fulfilled, and a new resource is created                                                                               	|
+|     202     	|     Accepted                           	|     The   request has been accepted for processing, but the processing has not been   completed                                                   	|
+|     203     	|     Non-Authoritative   Information    	|     The   request has been successfully processed, but is returning information that   may be from another source                                 	|
+|     204     	|     No   Content                       	|     The   request has been successfully processed, but is not returning any content                                                               	|
+|     205     	|     Reset   Content                    	|     The   request has been successfully processed, but is not returning any content,   and requires that the requester reset the document view    	|
+|     200     	|     OK                                 	|     The   request is OK (this is the standard response for successful HTTP requests)                                                              	|
+|     201     	|     Created                            	|     The   request has been fulfilled, and a new resource is created                                                                               	|
+|     202     	|     Accepted                           	|     The   request has been accepted for processing, but the processing has not been   completed                                                   	|
+|     203     	|     Non-Authoritative   Information    	|     The   request has been successfully processed, but is returning information that   may be from another source                                 	|
+|     204     	|     No   Content                       	|     The   request has been successfully processed, but is not returning any content                                                               	|
+|     205     	|     Reset   Content                    	|     The   request has been successfully processed, but is not returning any content,   and requires that the requester reset the document view    	|
+|     408     	|     Request   Timeout                  	|     Request   Timeout                                                                                                                             	|
+|     500     	|     Internal   Server Error            	|     A   generic error message, given when no more specific message is suitable                                                                    	|
+|     502     	|     Bad   Gateway                      	|     The   server was acting as a gateway or proxy and received an invalid response from   the upstream server                                     	|
+|     503     	|     Service   Unavailable              	|     The   server is currently unavailable (overloaded or down)                                                                                    	|
 # API NAMING BEST PRACTICES
 - Restful URIs should not indicate any kind of CRUD ( Create, Read, Update and Delete ) functionality. Instead, REST APIs should allow you to manipulate a resource
 > Example: instead of /getUser write <font style="color:green">/user/{id} </font>
