@@ -95,7 +95,7 @@
 - [Assignment-01: Making List Using Map and Array](https://github.com/Ruman-Hossain/MERN/tree/master/Assignments/01_MakingListUsingMapAndArray)
 - [Assignment-02: My First Node Js Website Using Request Response Model](https://github.com/Ruman-Hossain/MERN/tree/master/Assignments/02_my_first_nodejs_request_response)
 - [Assignment-03 : Node.js Mongodb Atlas CRUD Script | CREATE | INSERT | UPDATE | DELETE](https://github.com/Ruman-Hossain/MERN/tree/master/Assignments/03_nodeJS_MongoDB_Atlas_CRUD_Script_Create_Read_Update_Delete)
-- [Assignment-04 : ]()
+- [Assignment-04 : POST API with different properties Upload and Download API ](https://github.com/Ruman-Hossain/MERN/tree/master/Assignments/04_POST_API_with_different_properties_Upload_and_Download_API)
 - [Assignment-05 : ]()
 - [Assignment-06 : ]()
 - [Assignment-07 : ]()
