@@ -122,7 +122,7 @@ app.post('/upload-one', imageUpload.single('imageKey'), (req, res) => {
 
 //________________________________________________________________
 // CODE: b)i) UPLOAD Multiple IMAGES AT A TIME 
-//_
+//________________________________________________________________
 app.post('/upload-multiple', imageUpload.array('imageKey',5), (req, res) => {
     res.send(req.files)
     }, (error, req, res, next) => {
