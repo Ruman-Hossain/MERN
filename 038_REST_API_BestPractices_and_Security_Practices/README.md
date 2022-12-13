@@ -55,3 +55,14 @@ orders/ </font>
 10. Create <font style="color:blue">src->models </font>folder 
 11. Create <font style="color:blue">src->routes </font>folder 
 
+- <font style="color:blue">Index.js :</font> Responsible for connecting the MongoDB and starting the server.
+
+- <font style="color:blue">App.js :</font> Configure everything that has to do with Express application.
+
+- <font style="color:blue">Config.env:</font> for Enivrement Variables.
+
+- <font style="color:blue">Routes -> Routes.js:</font> The goal of the route is to guide the request to the correct handler function which will be in one of the controllers.
+
+- <font style="color:blue">Controllers -> Controller.js:</font> Handle the application request, interact with models and send back the response to the client.
+
+- <font style="color:blue">Models -> Model.js:</font> If we use Mongoose this will be schema definition for creating and reading documents from the underlying MongoDB database.
