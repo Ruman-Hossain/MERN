@@ -1,4 +1,5 @@
-## What is MongoDB: MongoDB is a cross-platform, document oriented database.
+## What is MongoDB: 
+MongoDB is a cross-platform, document oriented database.
 
 - Provides high performance 
 - High availability 
