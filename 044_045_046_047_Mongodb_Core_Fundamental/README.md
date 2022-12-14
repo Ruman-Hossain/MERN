@@ -255,7 +255,7 @@ To Select Specific number of records use limit method
 - ## Sort Records (Ascending: 1, Descending: -1)
 ```javascript
 	db.students.find().sort({name:1,city:-1})
-	db.products.find({},{name:1}).sort(name:-1)
+	db.products.find({},{name:1}).sort({name:-1})
 ```
 - ## Update One Document
 ```javascript
