@@ -175,7 +175,7 @@ To get stats about MongoDB server, type the command db.stats() in MongoDB client
 ```
 Suppose we wantto create a database that doesn't exists at all. Then you have to to use database by a name and have to insert atleast one data belongs to that db's collection
 - ## Create Database
-```shell
+```javascript
 	use schools
 	db.students.insert({name:"Ruman",city:"Rangpur"})
 ```
@@ -187,33 +187,33 @@ In Order to delete a database switch to that database then you can dropDatabase(
 ```
 If we want to create new collection belongs to an existing Database then you have to use createCollection() method
 - ## Collection Create
-```shell
+```javascript
 	db.createCollection("teachers")
 ```
 If requires to delete an existing collection use drop() method
 - ## Drop Collection
-```shell
+```javascript
 	db.teachers.drop()
 ```
 - ## Single Document Insert to a Collection
-```shell
+```javascript
 	db.students.insertOne({name:"Ruman",city:"Rangpur"})
 ```
 - ## Multiple Documents Insert to a Collection
-```shell
+```javascript
 	db.students.insertMany({name:"Ruman",city:"Rangpur"},{name:"Afrin",city:"Dhaka"},{name:"Anwar",city:"Rangpur"})
 ```
 - ## Find Single Document
-```shell
+```javascript
 	db.students.findOne({name:"Ruman"})
 ```
 - ## Find All Documents
-```shell
+```javascript
 	db.studetns.find()
 ```
 projection means selecting only the necessary data rather than selecting whole of the data of a document.
 - ## MongoDB Projection (skip -> 0, select-> 1)
-```shell
+```javascript
 	db.students.find({},{_id:0,name:1})
 ```
 - ## Query Operators
@@ -226,7 +226,7 @@ projection means selecting only the necessary data rather than selecting whole o
 7. <font style="color:green">$in</font> : In Operator
 8. <font style="color:green">$nin</font> : Not In Operator
 - ## Query Operators Usage
-```shell
+```javascript
 db.Products.find({price:{$eq:"1000"}})  
 db.Products.find({price:{$lt:"1000"}})  
 db.Products.find({price:{$lte:"1000"}})  
@@ -240,27 +240,37 @@ db.Products.find({price:{$nin:["100","200","3000"]}},{price:1})
 - ## Logical Operators
 1. <font style="color:green">$and </font>: Logical AND Opeartor
 2. <font style="color:green">$or </font>: Logical OR Operator
+```javascript
+	db.products.find({$and:[{price:{$eq:"100"}},{special_price:{$eq:"NA"}}]},{price:1,special_price:1,category:1})
+
+	db.products.find({$or:[{price:{$eq:"100"}},{special_price:{$eq:"NA"}}]},{price:1,special_price:1,category:1})
+```
 
 To Select Specific number of records use limit method
 - ## Limit Records
-```shell
+```javascript
 	db.students.find().limit(5)
 ```
-- ## Sort Records (Increasing: 1, Decreasing: -1)
-```shell
+- ## Sort Records (Ascending: 1, Descending: -1)
+```javascript
 	db.students.find().sort({name:1,city:-1})
 	db.products.find({},{name:1}).sort(name:-1)
 ```
+- ## Update One Document
+```javascript
+	db.students.updateOne({id:100,{$set:{name:"Anwar",city:"Dhaka"}}})
+
+```
 - ## Update Documents
 > db.COLLECTION_NAME.update(SELECTION_CRITERIA, UPDATED_DATA)
-```shell
+```javascript
 	db.students.update({id:100},{$set:{name:"Jahid",city:"Dhaka"}})
 ```
 - ## Delete Document
-```shell
+```javascript
 	db.students.remove({name:"Jahid",city:"Dhaka"})
 ```
 - ## Beautify JSON Output in shell query:  pretty()
-```shell
+```javascript
 	db.students.find().pretty()
 ```
