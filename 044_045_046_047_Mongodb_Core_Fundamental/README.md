@@ -146,4 +146,151 @@ In this model, you can refer the sub documents in the original document.
 
 
 # MongoDB Shell:
-- 
+1. The mongo shell is similar to the mysql in MySQL, psql in PostgreSQL, and SQL*Plus in Oracle Database.
+2. The mongo shell is an interactive JavaScript interface to MongoDB.
+3. The mongo shell is included in the MongoDB installation by default.
+```shell
+	> Math.max(10,20,55,15)
+	50
+	> function Sum(num1,num2){
+	...return num1+num2
+	...}
+	> sum(10,15)
+	25
+```
+To see the list of command you need to use the help() function
+- ## MongoDB Help
+
+```shell
+	db.help()
+```
+To get stats about MongoDB server, type the command db.stats() in MongoDB client. This will show the database name, number of collection and documents in the database.
+- ## MongoDB Statistics
+```shell
+	db.stats()
+```
+- ## Show Database Names
+```shell
+	show dbs
+```
+Suppose we wantto create a database that doesn't exists at all. Then you have to to use database by a name and have to insert atleast one data belongs to that db's collection
+- ## Create Database
+```shell
+	use schools
+	db.students.insert({name:"Ruman",city:"Rangpur"})
+```
+In Order to delete a database switch to that database then you can dropDatabase()
+- ## Drop Database 
+```shell
+	use schools
+	db.dropDatabase()
+```
+If we want to create new collection belongs to an existing Database then you have to use createCollection() method
+- ## Collection Create
+```shell
+	db.createCollection("teachers")
+```
+If requires to delete an existing collection use drop() method
+- ## Drop Collection
+```shell
+	db.teachers.drop()
+```
+- ## Single Document Insert to a Collection
+```shell
+	db.students.insertOne({name:"Ruman",city:"Rangpur"})
+```
+- ## Multiple Documents Insert to a Collection
+```shell
+	db.students.insertMany({name:"Ruman",city:"Rangpur"},{name:"Afrin",city:"Dhaka"},{name:"Anwar",city:"Rangpur"})
+```
+- ## Find Single Document
+```shell
+	db.students.findOne({name:"Ruman"})
+```
+- ## Find All Documents
+```shell
+	db.studetns.find()
+```
+projection means selecting only the necessary data rather than selecting whole of the data of a document.
+- ## MongoDB Projection (skip -> 0, select-> 1)
+```shell
+	db.students.find({},{_id:0,name:1})
+```
+- ## Query Operators
+1. <font style="color:green">$eq</font> : Equal To Operator
+2. <font style="color:green">$lt</font> : Less Than Operator
+3. <font style="color:green">$lte</font> : Less Than or Equal To Operator
+4. <font style="color:green">$gt</font> : Greater Than Operator
+5. <font style="color:green">$gte</font> : Greater Than or Equal To Operator
+6. <font style="color:green">$ne</font> : Not Equal To Operator
+7. <font style="color:green">$in</font> : In Operator
+8. <font style="color:green">$nin</font> : Not In Operator
+- ## Query Operators Usage
+```shell
+db.Products.find({price:{$eq:"1000"}})  
+db.Products.find({price:{$lt:"1000"}})  
+db.Products.find({price:{$lte:"1000"}})  
+db.Products.find({price:{$gt:"1000"}})  
+db.Products.find({price:{$gte:"1000"}})  
+db.Products.find({price:{$ne:"1000"}}) 
+db.Products.find({price:{$in:["100","200","3000"]}},{price:1})
+db.Products.find({price:{$nin:["100","200","3000"]}},{price:1})
+```
+
+- ## Logical Operators
+1. <font style="color:green">$and </font>: Logical AND Opeartor
+2. <font style="color:green">$or </font>: Logical OR Operator
+
+To Select Specific number of records use limit method
+- ## Limit Records
+```shell
+	db.students.find().limit(5)
+```
+- ## Sort Records (Increasing: 1, Decreasing: -1)
+```shell
+	db.students.find().sort({name:1,city:-1})
+	db.products.find({},{name:1}).sort(name:-1)
+```
+- ## Update Documents
+> db.COLLECTION_NAME.update(SELECTION_CRITERIA, UPDATED_DATA)
+```shell
+	db.students.update({id:100},{$set:{name:"Jahid",city:"Dhaka"}})
+```
+- ## Delete Document
+```shell
+	db.students.remove({name:"Jahid",city:"Dhaka"})
+```
+- ## Beautify JSON Output in shell query:  pretty()
+```shell
+	db.students.find().pretty()
+```
+
+# Mongoose
+## What is Mongoose?
+Mongoose an elegant MongoDB object modeling for Node.js
+
+## Why Should Use Mongoose?
+- Provides schema-based data modeling solution 
+- Type casting
+- Validation
+- Query building
+- Business logic.
+  
+## How to Start
+- Install mongoose 
+- Create Database connection 
+- Create your first mongoose model
+- Work with mongoose model  
+
+## Create Database Connection
+```javascript
+	let uri = 'mongodb://127.0.0.1:27017/schools';
+	let options = {user:'',pass:''};
+
+	mongoose.connect(uri,options,(error)=>{
+		if(error)
+			console.log(error);
+		else
+			console.log('MongoDB Connected Successfully!');
+	});
+```
