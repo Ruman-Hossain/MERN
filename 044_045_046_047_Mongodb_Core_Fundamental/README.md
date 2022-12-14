@@ -202,7 +202,7 @@ If requires to delete an existing collection use drop() method
 ```
 - ## Multiple Documents Insert to a Collection
 ```javascript
-	db.students.insertMany({name:"Ruman",city:"Rangpur"},{name:"Afrin",city:"Dhaka"},{name:"Anwar",city:"Rangpur"})
+	db.students.insertMany([{name:"Ruman",city:"Rangpur"},{name:"Afrin",city:"Dhaka"},{name:"Anwar",city:"Rangpur"}])
 ```
 - ## Find Single Document
 ```javascript
