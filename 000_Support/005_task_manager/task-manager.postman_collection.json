@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "166da603-165b-4ab9-889e-49821f7a7695",
+		"name": "task-manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12434516"
+	},
+	"item": [
+		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5050/api/v1/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"v1",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\": \"Cooking\",\r\n        \"completed\": true\r\n    },\r\n    {\r\n        \"name\": \"Reading\",\r\n        \"completed\": true\r\n    },\r\n    {\r\n        \"name\": \"Writing\",\r\n        \"completed\": true\r\n    },\r\n    {\r\n        \"name\": \"Cooking\",\r\n        \"completed\": true\r\n    },\r\n    {\r\n        \"name\": \"Eating\",\r\n        \"completed\": false\r\n    },\r\n    {\r\n        \"name\": \"Sleeping\",\r\n        \"completed\": false\r\n    },\r\n    {\r\n        \"name\": \"Reading\",\r\n        \"completed\": false\r\n    },\r\n    {\r\n        \"name\": \"Marketing\",\r\n        \"completed\": true\r\n    },\r\n    {\r\n        \"name\": \"Web Development\",\r\n        \"completed\": true\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5050/api/v1/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task-find",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5050/api/v1/get/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"v1",
+						"get",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "639c58f09b1188ee4c0b3893"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5050/api/v1/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"v1",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task-update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Writing Essay\",\r\n    \"completed\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5050/api/v1/update/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"v1",
+						"update",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "639c58589b1188ee4c0b387a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5050/api/v1/delete/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"v1",
+						"delete",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "639c58589b1188ee4c0b387a"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

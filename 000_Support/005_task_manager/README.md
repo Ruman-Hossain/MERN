@@ -1,4 +1,5 @@
 # OPERATIONS
+Click Here To See [POSTMAN Documentation File | Task-Manager by Ruman Hossain](https://documenter.getpostman.com/view/12434516/2s8YzXvfHu)
 ## TEST URL | POSTMAN
 > GET: //http://localhost:5050/api/v1/test
 
@@ -10,6 +11,7 @@
 }
 ```
 ## Tasks | Get All Task List
+Initially Task List will be empty. You need to create task list first then you can get the task list
 > GET: http://localhost:5050/api/v1/tasks
 > OUTPUT:
 ```javascript
@@ -153,5 +155,31 @@
     "updatedAt": "2022-12-16T09:57:44.983Z"
 }
 ```
-## DELETE BY id
+
 ## UPDATE BY id
+> DELETE: http://localhost:5050/api/v1/update/:id
+> PATH VARIABLE: id -> 639c4118bcf353a00e0fca79
+> BODY > RAW > JSON
+```javascript
+{
+    "name": "Writing Essay",
+    "completed": false
+}
+```
+> OUTPUT: 
+```javascript
+{
+    "_id": "639c58589b1188ee4c0b387a",
+    "name": "Writing Essay",
+    "completed": false,
+    "createdAt": "2022-12-16T11:36:56.665Z",
+    "updatedAt": "2022-12-16T11:42:36.523Z"
+}
+```
+## DELETE BY id
+> DELETE: http://localhost:5050/api/v1/delete/:id
+> PATH VARIABLE: id -> 639c4118bcf353a00e0fca79
+> OUTPUT: 
+```javascript
+Task deleted
+```
