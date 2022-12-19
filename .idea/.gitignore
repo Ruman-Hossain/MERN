@@ -3,4 +3,46 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-node_modules/
+/node_modules/
+
+#SUPORT CLASS NODE MODULES IGNORE
+000_Support/node_modules/
+000_Support/000_testServer/node_modules/
+000_Support/001_template_Literals/node_modules/
+000_Support/002_LoopTypes_ObjectProperties/node_modules/
+000_Support/003_map_filter_find_foreach/node_modules/
+000_Support/004_express-server/node_modules/
+000_Support/005_task_manager/node_modules/
+
+# LIVE CLASS NODE MODULES IGNORE
+001_javascriptFundamental/node_modules/
+002_JS_fun_StrictSpreadRestDynamicFunHoisting/node_modules/
+003_JS_fun_LoopObjectRestParamFunctionReturnDecisionMaking/node_modules/
+004_JS_fun_AnonymousArrowFunctionMultiDimensionalArrayDestructuringMapSet/node_modules/
+005_JS_fun_es6ModuleSuperKeyWord/node_modules/
+009_NodeJS_fun_ServerRequestResponseModel/node_modules/
+010_NodeJS_fun_PackageJsonURLModule/node_modules/
+011_NodeJS_fun_FSmodule/node_modules/
+012_NodeJS_fun_MongoDB/node_modules/
+016_NodeJS_Fun_MongoDB_Crud/node_modules/
+019_NodeJS_fun_NodeJS_Debugging/node_modules/
+030_ExpressJS_fun_Routing_Request_Response/node_modules/
+031_Express_fun_Response_Download_Redirect_Header_set_Cookies_Clear_Cookies/node_modules/
+032_Express_fun_Get_post_Request/node_modules/
+033_Express_fun_Route_Middleware_MultipartFormData_FileUpload_postApplicationJSON/node_modules/
+037_Req_Res_REST_API_ApplicationLevelClient_BrowserLevelClient/node_modules/
+038_REST_API_BestPractices_and_Security_Practices/node_modules/
+039_Express_API_Project/node_modules/
+040_Express_fun_API_Route_Middleware_EnvironemntVariable/node_modules/
+044_045_046_047_Mongodb_Core_Fundamental/node_modules/
+058_MERN_Backend_Mongoose/node_modules/
+
+
+# PRACTICE FOLDER PROJECTS GITIGNORE
+dummies/node_modules/
+dummies/MERN-Inventory/node_modules/
+dummies/adiba/node_modules/
+dummies/assignment-four/node_modules/
+dummies/create-folder-structure/node_modules/
+dummies/mongodb-trial/node_modules
+dummies/ostad-Assignment/node_modules

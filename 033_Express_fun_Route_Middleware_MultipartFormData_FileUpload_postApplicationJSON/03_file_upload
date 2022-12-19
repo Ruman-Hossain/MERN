@@ -9,7 +9,6 @@ const imageStorage = multer.diskStorage({
       filename: (req, file, cb) => {
           cb(null, file.originalname)
             // file.fieldname is name of the field (image)
-            // path.extname get the uploaded file extension
     }
 });
 const imageUpload = multer({
@@ -27,24 +26,24 @@ const imageUpload = multer({
 });
 
 // // SINGLE IMAGE UPLOAD || SEE OUTPUT IN POSTMAN JSON FORMAT
-// app.post('/onefile', imageUpload.single('imageKey'), (req, res) => {
-//     res.send(req.file)
-//     }, (error, req, res, next) => {
-//         res.status(400).send({ error: error.message })
-// });
+app.post('/onefile', imageUpload.single('imageKey'), (req, res) => {
+    res.send(req.file)
+    }, (error, req, res, next) => {
+        res.status(400).send({ error: error.message })
+});
 
 // SINGLE IMAGE UPLOAD ALTERNATIVE || You have to Check Console 
-const singleImage = imageUpload.single('imageKey');
-app.post('/onefile', (req, res)=> {
-    singleImage(req, res, (err)=> {
-      if (err instanceof multer.MulterError) {
-        console.log(`A Multer error occurred when uploading.\n ${err}`);
-      } else if (err) {
-        res.send(err);
-      }else
-        console.log(`Image Uploaded Successfully`);
-    });
-  });
+// const singleImage = imageUpload.single('imageKey');
+// app.post('/onefile', (req, res)=> {
+//     singleImage(req, res, (err)=> {
+//       if (err instanceof multer.MulterError) {
+//         console.log(`A Multer error occurred when uploading.\n ${err}`);
+//       } else if (err) {
+//         res.send(err);
+//       }else
+//         console.log(`Image Uploaded Successfully`);
+//     });
+//   });
 
 // // MULTIPLE IMAGE UPLOAD || SEE OUTPUT IN POSTMAN JSON FORMAT
 // app.post('/multifile', imageUpload.array('imageKey',5), (req, res) => {
