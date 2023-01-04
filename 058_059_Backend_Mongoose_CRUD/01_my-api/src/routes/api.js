@@ -9,5 +9,5 @@ router.get('/hello-post',HelloController.HelloPost);
 
 // Student Routing 
 router.post('/insert-student',StudentsController.InsertStudent);
-
+router.get('/read-student',StudentsController.ReadStudent);
 module.exports = router;
