@@ -33,6 +33,34 @@ exports.ReadStudent=(req,res)=>{
 };
 
 //Update Data Of Student Collection
-
+exports.UpdateStudent=(req,res)=>{
+    const id=req.params.id;
+    const query={_id:id}
+    const reqBody= req.body;
+    StudentModel.updateOne(query,reqBody,(error,data)=>{
+        if(error){
+            res.status(400).json({status:"Data Update Failed",data:error})
+            console.log(`Data Update Failed \n ${error}`);
+        }
+        else {
+            res.status(200).json({status:"Data Update Successful",data:data});
+            console.log(`Data Updated Successfully \n ${data}`);
+        }
+    });
+};
 
 //Delete Data From Student Collection
+exports.DeleteStudent=(req,res)=>{
+    let id=req.params.id;
+    let query={_id:id}
+    StudentModel.remove(query,(error,data)=>{
+        if(error){
+            res.status(400).json({status:"Data Delete Failed",data:error});
+            console.log(`Data Delete Failed \n ${error}`);
+        }
+        else {
+            res.status(200).json({status:"Data Delete Successful",data:data});
+            console.log(`Data Deleted Successfully \n ${data}`);
+        }
+    });
+};
