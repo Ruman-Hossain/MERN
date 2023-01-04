@@ -12,7 +12,8 @@ exports.InsertStudent=(req,res)=>{
             console.log("Data Insertion Failed");
         }else{
             res.status(200).json({status:"Success",data:data});
-            console.log("Data Inserted Successfully");
+            console.log(`Data Inserted Successfully \n ${data}`);   //usefull data can be printed normally
+            //console.log(`Data Inserted Successfully \n ${JSON.stringify(data)}`); //usefull data can be printed inside template literal as well
         }
     });
 };
@@ -44,7 +45,8 @@ exports.UpdateStudent=(req,res)=>{
         }
         else {
             res.status(200).json({status:"Data Update Successful",data:data});
-            console.log(`Data Updated Successfully \n ${data}`);
+            //console.log(`Data Updated Successfully \n ${data}`); //update response is not usefull Hence You can't console Like this 
+            console.log(`Data Updated Successfully \n ${JSON.stringify(data)}`); // unusefull data print requires to be stringified
         }
     });
 };
@@ -60,7 +62,7 @@ exports.DeleteStudent=(req,res)=>{
         }
         else {
             res.status(200).json({status:"Data Delete Successful",data:data});
-            console.log(`Data Deleted Successfully \n ${data}`);
+            console.log(`Data Deleted Successfully \n ${JSON.stringify(data)}`); // unusefull data print requires to be stringified to print inside template literals
         }
     });
 };
