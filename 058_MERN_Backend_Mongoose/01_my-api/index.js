@@ -4,5 +4,5 @@ dotEnv.config({path:'./config.env'});
 
 
 app.listen(process.env.PORT,()=>{
-    console.log(`This is from env ${process.env.PORT}`);
+    console.log(`Server is Running at PORT ${process.env.PORT}`);
 });

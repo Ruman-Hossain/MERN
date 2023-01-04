@@ -1,4 +1,4 @@
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 
 const StudentSchema = mongoose.Schema({
@@ -6,6 +6,6 @@ const StudentSchema = mongoose.Schema({
     roll:String,
     class:String,
     remarks:String
-});
-const studentModel = mongoose.model('students',StudentSchema);
-module.exports = studentModel;
+},{versionKey:false});
+const StudentModel = mongoose.model('students',StudentSchema);
+module.exports = StudentModel;

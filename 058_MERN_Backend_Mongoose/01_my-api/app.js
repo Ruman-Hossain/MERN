@@ -9,7 +9,8 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cors = require('cors');
-const { default: mongoose } = require('mongoose');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
 
 
 
@@ -19,6 +20,8 @@ app.use(xss());
 app.use(cors());
 app.use(mongoSanitize());
 app.use(hpp());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
 
 
 //Request Rate Limiting
@@ -29,8 +32,9 @@ const limiter = rateLimit({
 
 
 //MongoDB Database Connection
-const URI = "mongodb://localhost:27017/schools"
+const URI = "mongodb://localhost:27017/school"
 const OPTIONS = {user:'',pass:''}
+mongoose.set('strictQuery', true);
 mongoose.connect(URI,OPTIONS,(error)=>{
     if(error)
         console.log(error);
@@ -42,7 +46,7 @@ app.use("/api/v1",router);
 
 //Undefined Route
 app.use('*',(req,res)=>{
-    res.status(404).json({status:"fail",data:"Not Found"});
+    res.status(404).json({status:"Failed",data:"Route Not Found"});
 });
 
 module.exports = app;
