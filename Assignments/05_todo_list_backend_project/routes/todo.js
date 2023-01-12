@@ -7,31 +7,35 @@ const router = express.Router();
 
 // PROFILE 
 // create
-router.post('/create-profile',profile.create);
+router.post('/user/create',profile.create);
 // login
-router.post("/user-login", profile.login);
+router.post("/user/login", profile.login);
 // select
-router.get("/select-profile",auth,profile.select)
+router.get("/user/select",auth,profile.select)
 // update
-router.put("/update-profile",auth,profile.update)
+router.patch("/user/update",auth,profile.update)
 
 // TODO
 // create
-router.post('/create-todo',auth,todoList.create);
+router.post('/todo/create',auth,todoList.create);
 // select
-router.get('/select-todo',auth,todoList.select);
+router.get('/todo/select',auth,todoList.select);
 // udpate
-router.patch('/update-todo',auth,todoList.update);
+router.patch('/todo/update',auth,todoList.update);
 // udpate status
-router.param('/update-todo-status',auth,todoList.updateStatus);
+router.patch('/todo/update-by-status',auth,todoList.updateStatus);
 // delete
-router.delete('/delete-todo',auth,todoList.delete)
+router.delete('/todo/delete',auth,todoList.delete)
 
 // QUERY
 // select todo by status
-router.get('/select-by-status',auth,todoList.selectByStatus);
+router.get('/todo/select-by-status',auth,todoList.selectByStatus);
 // select todo by date
-router.get('/select-by-date',auth,todoList.selectByDate);
+router.get('/todo/select-by-date',auth,todoList.selectByDate);
+
+// router.post('*',(req,res)=>{
+//     res.status(404).json({status:'Route Not Found'});
+// });
 
 
 module.exports = router;

@@ -5,11 +5,11 @@ const TodolistSchema=mongoose.Schema({
    subject      :   {type  : String},
    description  :   {type  : String},
    status       :   {type  : String,default:"New"},
-   createData   :   {type  : Date},
+   createDate   :   {type  : Date},
    udpateDate   :   {type  : Date}
    
 },{versionKey:false});
 
 const Todolist=mongoose.model("todoLists",TodolistSchema)
 
-module.exports=TodoListModel;
+module.exports=Todolist;

@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const helmet = require('helmet');
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 require("dotenv").config();
 const morgan = require("morgan");
 const cors = require('cors');
@@ -19,8 +19,9 @@ app.use(cors());
 
 // DB Connection
 mongoose
+    .set('strictQuery', true)
     .connect(process.env.DATABASE)
-    .then(() => console.log("DB connected"))
+    .then(() => console.log("Database Connected Successfully"))
     .catch((err) => console.log("DB Error => ", err));
    
 
@@ -31,6 +32,6 @@ readdirSync("./routes").map(r => app.use("/api/v1", require(`./routes/${r}`)))
 const port = process.env.PORT || 5050;
 
 
-app.listen(port, () => {
+app.listen(port, (req,res) => {
     console.log(`App is running on port ${port}`);
 });

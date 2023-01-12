@@ -1,12 +1,11 @@
 const jwt = require('jsonwebtoken');
-require("dotenv").config();
-
 module.exports=(req,res,next)=>{
-    const token = req.headers['token-key'];
+    const token = req.headers['token'];
+    console.log(typeof(token));
 
-    jwt.verify(token,process.env.SECRET_KEY, (error,decoded)=>{
+    jwt.verify(token,'ABC123', (error,decoded)=>{
         if(error)
-            res.status(401).json({status:'Unathorized Access'});
+            res.status(401).json({status:'Unathorized Access',data:error});
         else{
             const userName = decoded['data']['userName'];
             req.headers.userName = userName;
