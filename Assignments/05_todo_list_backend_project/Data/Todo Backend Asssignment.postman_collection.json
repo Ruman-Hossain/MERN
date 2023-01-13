@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "c8ddd9e3-afab-4ac2-9a9c-b33a1431a00c",
+		"name": "Todo Backend Asssignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12434516"
+	},
+	"item": [
+		{
+			"name": "User Profile",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Ruman\",\r\n    \"lastName\":\"Hossain\",\r\n    \"email\":\"ruman.cse.brur@gmail.com\",\r\n    \"phone\":\"01723974489\",\r\n    \"city\":\"Rangpur\",\r\n    \"userName\":\"ruman\",\r\n    \"password\":\"ruman\",\r\n    \"gender\":\"Male\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/user/create",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"ruman\",\r\n    \"password\":\"ruman\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/user/login",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "select",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/user/select",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"user",
+								"select"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Md Ruman\",\r\n    \"lastName\":\"Hossain\",\r\n    \"email\":\"ruman@gmail.com\",\r\n    \"mobile\":\"01521467008\",\r\n    \"userName\":\"ruman\",\r\n    \"city\":\"Rangpur\",\r\n    \"password\":\"ruman\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/user/update",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ToDo List",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"subject\":\"Data Structure and Algorithm III\",\r\n    \"description\":\"Cracking the Coding Interview III\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/todo/create",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"todo",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "select",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/todo/select",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"todo",
+								"select"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subject\":\"FAANG Interview Cracking\",\r\n    \"description\":\"Coding Preperation for FACEBOOK, AMAZON, APPLE, NETFLIX, GOOGLE\",\r\n    \"_id\":\"63c126750a7d4774a0f4dffd\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/todo/update",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"todo",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateByStatus",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"Half Done\",\r\n    \"_id\":\"63c126750a7d4774a0f4dffd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/todo/update-by-status",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"todo",
+								"update-by-status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"63c126750a7d4774a0f4dffd\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/todo/delete",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"todo",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "selectByStatus",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"Revising\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/todo/select-by-status",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"todo",
+								"select-by-status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "selectByDate",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fromDate\":\"Thu Jan 05 2022\",\r\n    \"today\":\"Fri Jan 14 2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/todo/select-by-date",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"todo",
+								"select-by-date"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "http://localhost:5050/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzYxOTM0NTksImRhdGEiOnsiX2lkIjoiNjNjMTFlZTQ2YzQ1OTNjZjI5Mjk2NDZlIiwiZmlyc3ROYW1lIjoiTWQgUnVtYW4iLCJsYXN0TmFtZSI6Ikhvc3NhaW4iLCJlbWFpbCI6InJ1bWFuQGdtYWlsLmNvbSIsInBob25lIjoiMDE3MjM5NzQ0ODkiLCJjaXR5IjoiUmFuZ3B1ciIsInVzZXJOYW1lIjoicnVtYW4iLCJwYXNzd29yZCI6InJ1bWFuIiwiZ2VuZGVyIjoiTWFsZSJ9LCJpYXQiOjE2NzM2MDE0NTl9.6WDbH6eaElY5WvEr2y4zL2cjaaQyLpnMD6Qslhb-e7Q",
+			"type": "string"
+		}
+	]
+}

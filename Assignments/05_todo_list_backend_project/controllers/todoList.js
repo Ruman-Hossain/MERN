@@ -20,10 +20,10 @@ exports.create = (req,res)=>{
     }
     Todolist.create(postBody,(error,data)=>{
        if(error){
-          res.status(400).json({status:"failed",data:error});
+          res.status(400).json({status:"Todo Create Failed",data:error});
        }
        else{
-          res.status(400).json({status:"success",data:data});
+          res.status(400).json({status:`New Todo Created for the User ${userName}`,data:data});
        }
     });
 };
@@ -33,9 +33,9 @@ exports.select = (req,res)=>{
  
     Todolist.find({userName:userName},(error,data)=>{
        if(error){
-          res.status(400).json({status:"Failed",data:error});
+          res.status(400).json({status:"User Todo Selection Failed",data:error});
        }else{
-          res.status(200).json({status:"Success",data:data});
+          res.status(200).json({status:`${userName}'s Todo List Selected Successfully`,data:data});
        }
     });
 };
@@ -52,12 +52,12 @@ exports.update = (req,res)=>{
         description:description, 
         updateDate:updateDate
     }
-  
+    const userName = req.headers.userName;
     Todolist.updateOne({_id:_id},{$set:postBody},{upsert:true},(error,data)=>{
        if(error){
-          res.status(400).json({status:"Failed",data:error});
+          res.status(400).json({status:`Todo Update Failed`,data:error});
        }else{
-          res.status(200).json({status:"Success",data:data});
+          res.status(200).json({status:`${userName}'s Todo Updated Successfully`,data:data});
        }
     })
 };
@@ -76,9 +76,9 @@ exports.updateStatus = (req,res)=>{
    
      Todolist.updateOne({_id:_id},{$set:postBody},{upsert:true},(error,data)=>{
         if(error){
-           res.status(400).json({status:"Failed",data:error})
+           res.status(400).json({status:`Todo Status Update Failed`,data:error})
         }else{
-           res.status(200).json({status:"Success",data:data})
+           res.status(200).json({status:`${req.headers.userName}'s Todo Status Updated to ${postBody.status} : id-${_id}`,data:data})
         }
      })
 };
@@ -89,9 +89,9 @@ exports.delete = (req,res)=>{
    
       Todolist.deleteOne({_id:_id},(error,data)=>{
          if(error){
-            res.status(400).json({status:"Failed",data:error});
+            res.status(400).json({status:`Todo Delete Failed`,data:error});
          }else{
-            res.status(200).json({status:"Success",data:data});
+            res.status(200).json({status:`${req.headers.userName}'s Todo Deleted Successfully :id-${_id}`,data:data});
          }
       });
 };
