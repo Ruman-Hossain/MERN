@@ -1,10 +1,10 @@
 import React from 'react';
+import HomePage from './pages/HomePage';
 
 const App = () => {
   return (
     <div>
-      <h1>Welcome To React JS</h1>
-      <h1>{33+21}</h1>
+      <HomePage/>
     </div>
   );
 };
