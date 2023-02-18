@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import HomeBanner from '../components/home/HomeBanner';
 
 export default class HomePage extends Component {
     constructor(){
@@ -7,7 +8,7 @@ export default class HomePage extends Component {
     render() {
         return (
         <div>
-            
+            <HomeBanner/>
         </div>
         )
     }
