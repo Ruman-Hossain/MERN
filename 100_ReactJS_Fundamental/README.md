@@ -17,3 +17,15 @@
 
 ## Project Structure
 
+## Different Types of Functional Component Hooks
+1. useState
+2. useEffect
+3. useRef
+4. useContext
+5. useReducer
+6. useCallback
+7. useMemo
+8. useImperativeHandle
+9. useLayoutEffect
+10. useDebugValue
+
