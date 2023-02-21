@@ -11,7 +11,19 @@ const HomeBanner = (props) => {
         });
         
     },[]);
+    const editTodo = (id)=>{
+        const editId = `Edit ID : ${id}`;
+        alert(editId)
+    }
+    const deleteTodo = (id)=>{
+        const deleteId = `Delete ID : ${id}`;
+        alert(deleteId);
 
+    }
+    const detailsTodo = (id)=>{
+        const detailsId = `Details ID : ${id}`;
+        alert(detailsId);
+    }
     const todoList = todo.map((list,i)=>{
         return (
             <tr>
@@ -19,9 +31,9 @@ const HomeBanner = (props) => {
                 <td>{list.id}</td>
                 <td>{list.title}</td>
                 <td>{list.completed?"True":"False"}</td>
-                <td><button className='btn btn-primary'>Edit</button></td>
-                <td><button className='btn btn-danger'>Delete</button></td>
-                <td><button className='btn btn-success'>Details</button></td>
+                <td><button className='btn btn-primary' onClick={editTodo.bind(this,list.id)}>Edit</button></td>
+                <td><button className='btn btn-danger' onClick={deleteTodo.bind(this,list.id)}>Delete</button></td>
+                <td><button className='btn btn-success' onClick={detailsTodo.bind(this,list.id)}>Details</button></td>
             </tr>
         )
     });
