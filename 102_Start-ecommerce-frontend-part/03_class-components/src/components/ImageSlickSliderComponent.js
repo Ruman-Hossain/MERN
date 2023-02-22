@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Carousel, Image } from "react-bootstrap";
 
-export default class ImageSlickSliderComponent extends Component {
+export default class ProductImageSliderComponent extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {

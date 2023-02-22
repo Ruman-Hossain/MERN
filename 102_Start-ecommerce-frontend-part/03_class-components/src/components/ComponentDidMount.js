@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Card, Row, Col, Button } from "react-bootstrap";
-import ImageSlickSliderComponent from "./ImageSlickSliderComponent";
+import ProductImageSliderComponent from "./ProductImageSliderComponent";
 export default class componentDidMount extends Component {
 	constructor(props) {
 		super(props);
@@ -30,7 +30,7 @@ export default class componentDidMount extends Component {
 			return (
 				<Col key={i} className='mb-4' xs={6} md={3}>
 					<Card style={{ width: "18rem", margin: "10px" }}>
-						<ImageSlickSliderComponent Images={item.images} />
+						<ProductImageSliderComponent Images={item.images} />
 						<Card.Body>
 							<Card.Title>{item.title}</Card.Title>
 							<Card.Text>{item.description}</Card.Text>
