@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   // state
-  const [name, setName] = useState("Faisal ahmed");
-  const [email, setEmail] = useState("faisal@gmail.com");
-  const [password, setPassword] = useState("MArt@msb2020");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   // hooks
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
@@ -17,17 +17,15 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(
-        `/register`,
-        {
-          name,
-          email,
-          password,
-        }
-      );
+      const response = await axios.post('http://127.0.0.1:8000/api/v1/register', {
+        name: name,
+        email: email,
+        password: password,
+      });
+      const data = response.data;
       console.log(data);
 
-      if (data?.error) {
+      if (data && data.error) {
         toast.error(data.error);
       } else {
         localStorage.setItem("auth", JSON.stringify(data));
@@ -35,9 +33,9 @@ const Register = () => {
         toast.success("Registration successful");
         navigate("/dashboard");
       }
-    } catch (err) {
-      console.log(err);
-      toast.error("Registration failed. Try again.");
+    } catch (error) {
+      console.log(error);
+      toast.error(`Registration failed. ${error.message}`);
     }
   };
 
@@ -48,30 +46,50 @@ const Register = () => {
         <div className="row">
           <div className="col-md-6 offset-md-3">
             <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                className="form-control mb-4 p-2"
-                placeholder="Enter your name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                autoFocus
-              />
+              <div className="mb-4">
+                <label htmlFor="name" className="form-label">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control p-2"
+                  id="name"
+                  placeholder="Enter your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  autoFocus
+                />
+              </div>
 
-              <input
-                type="email"
-                className="form-control mb-4 p-2"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+              <div className="mb-4">
+                <label htmlFor="email" className="form-label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  className="form-control p-2"
+                  id="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
 
-              <input
-                type="password"
-                className="form-control mb-4 p-2"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <div className="mb-4">
+                <label htmlFor="password" className="form-label">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control p-2"
+                  id="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
 
               <button className="btn btn-primary" type="submit">
                 Submit
@@ -82,6 +100,6 @@ const Register = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Register;
