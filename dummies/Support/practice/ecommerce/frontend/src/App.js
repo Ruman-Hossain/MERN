@@ -59,6 +59,6 @@ const App=()=> {
         <Route path="*" element={<PageNotFound />} replace />
       </Routes>
     </BrowserRouter>
-  );
+  );6
 }
 export default App;
